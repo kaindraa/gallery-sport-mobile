@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_sport/menu.dart';
+import 'package:gallery_sport/screens/menu.dart';
 
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gallery Sport',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,8 +31,11 @@ class MyApp extends StatelessWidget {
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.deepPurple,
-          ).copyWith(secondary: Colors.deepPurple[400]),
+          primarySwatch: Colors.blue, 
+          ).copyWith(
+            primary: const Color.fromARGB(255, 39, 73, 209), // Warna biru kustom
+            secondary: const Color.fromARGB(255, 224, 22, 22), // Warna sekunder
+          ),
       ),
       home: MyHomePage(),
     );
