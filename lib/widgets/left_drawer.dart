@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_sport/screens/list_productentry.dart';
 import 'package:gallery_sport/screens/menu.dart';
 import 'package:gallery_sport/screens/productentry_form.dart';
 
@@ -51,18 +52,17 @@ class LeftDrawer extends StatelessWidget {
                     ));
               },
             ),
-            ListTile(
-              leading: const Icon(Icons.add),
-              title: const Text('Tambah Produk'),
-              // Bagian redirection ke ProductEntryFormPage
-              onTap: () {
-                Navigator.pushReplacement(
+           ListTile(
+            leading: const Icon(Icons.add_reaction_rounded),
+            title: const Text('Daftar Mood'),
+            onTap: () {
+                // Route menu ke halaman mood
+                Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => ProductEntryFormPage(),
-                  ));
-              },
-            ),        ],
+                    MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+                );
+            },
+        ),       ],
       ),
     );
   }

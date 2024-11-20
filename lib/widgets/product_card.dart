@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_sport/screens/list_productentry.dart';
 import 'package:gallery_sport/screens/productentry_form.dart';
 
 
@@ -43,6 +44,14 @@ class ItemCard extends StatelessWidget {
                   builder: (context) => ProductEntryFormPage(),
                 ),
               );            }
+
+        else if (item.name == "Lihat Mood") {
+          Navigator.push(context,
+              MaterialPageRoute(
+                  builder: (context) => const ProductEntryPage()
+              ),
+          );
+}
       },
         // Container untuk menyimpan Icon dan Text
         child: Container(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_sport/screens/login.dart';
 import 'package:gallery_sport/screens/menu.dart';
-
-
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -9,36 +10,25 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Gallery Sport',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.blue, 
+    return Provider(
+      create: (_) {
+        CookieRequest request = CookieRequest();
+        return request;
+      },
+      child: MaterialApp(
+        title: 'Gallery Sport',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch(
+            primarySwatch: Colors.blue,
           ).copyWith(
-            primary: const Color.fromARGB(255, 39, 73, 209), // Warna biru kustom
-            secondary: const Color.fromARGB(255, 224, 22, 22), // Warna sekunder
+            primary: const Color.fromARGB(255, 39, 73, 209),
+            secondary: const Color.fromARGB(255, 224, 22, 22),
           ),
+        ),
+        home: const LoginPage(),
       ),
-      home: MyHomePage(),
     );
   }
 }
-
