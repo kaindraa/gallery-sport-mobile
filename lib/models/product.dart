@@ -1,25 +1,25 @@
 // To parse this JSON data, do
 //
-//     final moodEntry = moodEntryFromJson(jsonString);
+//     final product = productFromJson(jsonString);
 
 import 'dart:convert';
 
-List<MoodEntry> moodEntryFromJson(String str) => List<MoodEntry>.from(json.decode(str).map((x) => MoodEntry.fromJson(x)));
+List<Product> productFromJson(String str) => List<Product>.from(json.decode(str).map((x) => Product.fromJson(x)));
 
-String moodEntryToJson(List<MoodEntry> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String productToJson(List<Product> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class MoodEntry {
+class Product {
     String model;
     String pk;
     Fields fields;
 
-    MoodEntry({
+    Product({
         required this.model,
         required this.pk,
         required this.fields,
     });
 
-    factory MoodEntry.fromJson(Map<String, dynamic> json) => MoodEntry(
+    factory Product.fromJson(Map<String, dynamic> json) => Product(
         model: json["model"],
         pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),
@@ -35,27 +35,35 @@ class MoodEntry {
 class Fields {
     int user;
     String name;
-    int amount;
+    int price;
     String description;
+    int quantity;
+    double discount;
 
     Fields({
         required this.user,
         required this.name,
-        required this.amount,
+        required this.price,
         required this.description,
+        required this.quantity,
+        required this.discount,
     });
 
     factory Fields.fromJson(Map<String, dynamic> json) => Fields(
         user: json["user"],
         name: json["name"],
-        amount: json["amount"],
+        price: json["price"],
         description: json["description"],
+        quantity: json["quantity"],
+        discount: json["discount"].toDouble(),
     );
 
     Map<String, dynamic> toJson() => {
         "user": user,
         "name": name,
-        "amount": amount,
+        "price": price,
         "description": description,
+        "quantity": quantity,
+        "discount": discount,
     };
 }

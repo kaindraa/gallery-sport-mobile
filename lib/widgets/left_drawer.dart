@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gallery_sport/screens/list_productentry.dart';
+import 'package:gallery_sport/screens/list_product.dart';
 import 'package:gallery_sport/screens/menu.dart';
-import 'package:gallery_sport/screens/productentry_form.dart';
+import 'package:gallery_sport/screens/product_form.dart';
 
 
 
@@ -54,12 +54,12 @@ class LeftDrawer extends StatelessWidget {
             ),
            ListTile(
             leading: const Icon(Icons.add_reaction_rounded),
-            title: const Text('Daftar Mood'),
+            title: const Text('Daftar Produk'),
             onTap: () {
-                // Route menu ke halaman mood
+                // Route menu ke halaman Product
                 Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+                    MaterialPageRoute(builder: (context) => const ProductPage()),
                 );
             },
         ),       ],
